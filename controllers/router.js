@@ -1,7 +1,6 @@
 const { home } = require("./service/home");
 const { spyderStart } = require("./service/spyder.start");
-const { spyderStop } = require("./service/spyder.stop");
-const { spyderRestart } = require("./service/spyder.restart");
+const { spyderClose } = require("./service/spyder.close");
 const { spyderInfo } = require("./service/spyder.info");
 const { browserClose } = require("./service/browser.close");
 const { browserGet } = require("./service/browser.get");
@@ -13,8 +12,7 @@ module.exports = {
   },
   spyder: {
     start: spyderStart,
-    stop: spyderStop,
-    restart: spyderRestart,
+    close: spyderClose,
     info: spyderInfo,
   },
   browser: {

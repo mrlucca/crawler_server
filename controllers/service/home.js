@@ -1,3 +1,4 @@
+"use strict";
 const { CRAWLER_LIST } = require("../../crawlers/router");
 const home = async (req, res) => {
   res.send(`

@@ -1,7 +1,7 @@
 "use strict";
 const Browser = require("../../lib/browser");
 let params = {
-  headless: false,
+  headless: true,
   chrome: false,
 };
 
@@ -10,6 +10,7 @@ const browserGet = async (req, res) => {
   if (globalBrowserInfo.browsers.hasOwnProperty(id)) {
     res.send({ browser_create: false, browser_id_exists: true });
   } else {
+    console.log(`Get browser id: ${id}`);
     globalBrowserInfo.browsers[id] = {
       browserObject: await new Browser(params).getBrowser(),
       browser_instance: params.chrome ? "chrome" : "chromium",

@@ -16,9 +16,7 @@ async function sleep(ms) {
   app.get("/browser/close/:id", browser.close);
   app.get("/browser/info/", browser.info);
   app.get("/spyder/start/:browser_id/:spyder", spyder.start);
-  app.get("/spyder/stop/:browser_id/:spyder", spyder.stop);
-  app.get("/spyder/restart/:browser_id/:spyder", spyder.restart);
+  app.get("/spyder/close/:browser_id/:spyder", spyder.close);
   app.get("/spyder/info/", spyder.info);
-  app.post("/restart");
   app.listen(PORT, () => console.log("Gator app listening on port 3000!"));
 })();

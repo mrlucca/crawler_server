@@ -1,18 +1,13 @@
-const { CRAWLER_LIST } = require("../../crawlers/router");
-let params = {
-  browser: {
-    headless: false,
-    chrome: false,
-  },
-};
+"use strict";
 const { CrawlerServer } = require("../../lib/CrawlerServer");
-
+const { CRAWLER_LIST } = require("../../crawlers/router");
 const spyderStart = async (req, res) => {
   let browser_id = req.params.browser_id;
   if (globalBrowserInfo.browsers.hasOwnProperty(browser_id)) {
     let spyder_name = req.params.spyder;
     let browser = globalBrowserInfo.browsers[browser_id].browserObject;
     if (CRAWLER_LIST.hasOwnProperty(spyder_name)) {
+      console.log(`Start ${spyder_name} in browser ${browser_id}`);
       let server = new CrawlerServer();
       await server.setBrowser(browser);
       server.sypderRun({
